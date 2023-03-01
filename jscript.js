@@ -34,14 +34,14 @@ submitBtn.addEventListener("click", (event) => {
 
   let xhr = new XMLHttpRequest(); //1. Создать XMLHttpRequest
   xhr.open('GET', '#.php'); // 2. Инициализировать его xhr.open(method(GET/POST), URL) (replace '#.php' with folder on server)
-  xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-
+//   xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+xhr.responseType = 'json';
   xhr.send(jsonString); //3. Послать запрос
 
   xhr.onload = function() { //4. Слушать события на xhr, чтобы получить ответ (load – происходит, когда получен какой-либо ответ)
-
+let responseObj = xhr.response;
     if (xhr.status == 200) { //Код состояния HTTP (число): 200, 404, 403 и так далее, может быть 0 в случае, если ошибка не связана с HTTP.
-      alert('Готово, получили: ' + xhr.response);
+      alert('Готово, получили: ' + responseObj.message);
     }
     else {
       alert('Произошла ошибка. Код ошибки: ' + xhr.status);
