@@ -35,7 +35,7 @@ submitBtn.addEventListener("click", (event) => {
   let xhr = new XMLHttpRequest(); //1. Создать XMLHttpRequest
   xhr.open('GET', '#.php'); // 2. Инициализировать его xhr.open(method(GET/POST), URL) (replace '#.php' with folder on server)
 
-  xhr.send(); //3. Послать запрос
+  xhr.send(jsonString); //3. Послать запрос
 
   xhr.onload = function() { //4. Слушать события на xhr, чтобы получить ответ (load – происходит, когда получен какой-либо ответ)
     if (xhr.status == 200) { //Код состояния HTTP (число): 200, 404, 403 и так далее, может быть 0 в случае, если ошибка не связана с HTTP.
