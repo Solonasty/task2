@@ -34,6 +34,7 @@ submitBtn.addEventListener("click", (event) => {
 
   let xhr = new XMLHttpRequest(); //1. Создать XMLHttpRequest
   xhr.open('GET', '#.php'); // 2. Инициализировать его xhr.open(method(GET/POST), URL) (replace '#.php' with folder on server)
+  xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
   xhr.send(jsonString); //3. Послать запрос
 
